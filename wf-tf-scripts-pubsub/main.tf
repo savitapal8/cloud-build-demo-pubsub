@@ -43,7 +43,8 @@ resource "google_pubsub_topic" "pb_topic" {
     environment = "dev" 
     created = "20211124" 
   }
- kms_key_name = google_kms_crypto_key.secrets.id
+ #kms_key_name = google_kms_crypto_key.secrets.id
+ kms_key_name = "projects/airline1-sabre-wolverine/locations/us/keyRings/savita-keyring-us/cryptoKeys/key-test"
  message_storage_policy {
     allowed_persistence_regions = [
       "us-central1",
