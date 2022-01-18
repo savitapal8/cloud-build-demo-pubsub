@@ -1,0 +1,27 @@
+timeout: 1200s
+substitutions:
+  _TF_SA_EMAIL: 'test-tf@gdc-ll-nat-demo.iam.gserviceaccount.com'
+steps:
+- id: 'setup'
+  name: gcr.io/cloud-builders/gcloud
+  entrypoint: bash
+  args:
+  - -c
+  - |
+    tf_sa_email=${_TF_SA_EMAIL}
+    if [[ -n ${tf_sa_email} ]]; then
+      echo "Setting up gcloud for impersonation"
+      gcloud config set auth/impersonate_service_account $tf_sa_email
+    fi
+# [START Terraform]
+- id: 'apply alert policy'
+  name: gcr.io/$PROJECT_ID/terraform:latest
+  entrypoint: bash
+  args:
+  - -c
+  - |
+    cd wf-tf-scripts-pubsub
+    terraform init
+    terraform plan
+    terraform apply --auto-approve
+
