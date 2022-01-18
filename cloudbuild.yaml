@@ -1,6 +1,6 @@
 timeout: 1200s
 substitutions:
-  _TF_SA_EMAIL: 'test-tf@gdc-ll-nat-demo.iam.gserviceaccount.com'
+  _TF_SA_EMAIL: 'dlp-test-sa@airline1-sabre-wolverine.iam.gserviceaccount.com'
 steps:
 - id: 'setup'
   name: gcr.io/cloud-builders/gcloud
