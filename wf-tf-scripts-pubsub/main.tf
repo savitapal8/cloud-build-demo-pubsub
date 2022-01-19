@@ -10,7 +10,7 @@ data "google_project" "project" {
 
 resource "google_pubsub_topic" "pb_topic" {
  project      = data.google_project.project.project_id
- name         = "dev-appid-strg-demopbcb-topic"
+ name         = "dev-appid-strg-demopbcbb-topic"
  labels = {
     owner = "hybridenv"
     application_division = "pci"
@@ -39,7 +39,7 @@ resource "google_pubsub_topic_iam_member" "member" {
 
 resource "google_pubsub_subscription" "subsc" {
  project      = "airline1-sabre-wolverine"
- name         = "my-dev-appid-strg-demopbcb-subsc"
+ name         = "my-dev-appid-strg-demopbcbb-subsc"
  topic = google_pubsub_topic.pb_topic.name
  labels = {
     owner = "hybridenv"
