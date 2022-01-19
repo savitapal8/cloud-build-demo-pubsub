@@ -1,2 +1,1 @@
-# cloud-build-demo-pubsub  
-
+# cloud-build-demo-pubsub
